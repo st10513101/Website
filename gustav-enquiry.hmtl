@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Enquiry - Gustav's Pizza</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<h1>Make an Enquiry</h1>
+<p>Ask us about catering, large orders, or booking a table!</p>
+
+<!-- FORM STARTS HERE -->
+<form id="enquiryForm" class="pizza-form">
+<div class="form-group">
+<label for="enqName">Your Name:</label>
+<input type="text" id="enqName" name="name" required minlength="3">
+<span class="error-msg" id="nameError"></span>
+</div>
+
+<div class="form-group">
+<label for="enqEmail">Email Address:</label>
+<input type="email" id="enqEmail" name="email" required>
+<span class="error-msg" id="emailError"></span>
+</div>
+
+<div class="form-group">
+<label for="enqType">Type of Enquiry:</label>
+<select id="enqType" name="type" required>
+<option value="">-- Please Select --</option>
+<option value="table">Table Booking</option>
+<option value="catering">Catering Event</option>
+<option value="sponsor">Sponsorship</option>
+</select>
+</div>
+
+<div class="form-group">
+<label for="enqMessage">Message / Details:</label>
+<textarea id="enqMessage" name="message" rows="4" required></textarea>
+</div>
+
+<button type="submit" class="btn">Submit Enquiry</button>
+<p id="enqSuccessMsg" style="color: green; font-weight: bold; display: none;"></p>
+</form>
+
+<script src="js/inquiry.js"></script>
+</body>
+</html>

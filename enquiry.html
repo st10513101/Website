@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Enquiry | Gustapo Pizza</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1> Gustapo Pizza</h1>
+        <p>Fresh Pizza, Made with Love!</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="enquiry.html">Pizza Enquiry</a>
+        <a href="contact.html">Contact Us</a>
+    </nav>
+
+    <main>
+        <h2>Pizza Enquiry</h2>
+        <p>Have questions about our pizzas, prices or special offers?
+           Fill in the form below and let us help you!</p>
+
+        <form id="enquiryForm">
+
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name"
+                   required minlength="2">
+
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email"
+                   required>
+
+            <label for="phone">Phone Number (optional):</label>
+            <input type="tel" id="phone" name="phone">
+
+            <label for="pizza">Pizza of Interest:</label>
+            <select id="pizza" name="pizza" required>
+                <option value="">Choose a pizza</option>
+                <option value="Margherita">Margherita</option>
+                <option value="Pepperoni">Pepperoni</option>
+                <option value="Hawaiian">Hawaiian</option>
+                <option value="BBQ Chicken">BBQ Chicken</option>
+                <option value="Vegetarian">Vegetarian</option>
+                <option value="Meat Lovers">Meat Lovers</option>
+            </select>
+
+            <label for="size">Preferred Pizza Size:</label>
+            <select id="size" name="size" required>
+                <option value="">Choose a size</option>
+                <option value="Small">Small</option>
+                <option value="Medium">Medium</option>
+                <option value="Large">Large</option>
+            </select>
+
+            <label for="type">Type of Enquiry:</label>
+            <select id="type" name="type" required>
+                <option value="">Choose an enquiry</option>
+                <option value="Prices">Pizza Prices</option>
+                <option value="Ingredients">Ingredients and Allergens</option>
+                <option value="Special Offers">Special Offers</option>
+                <option value="Delivery">Delivery Information</option>
+                <option value="Catering">Party and Catering Orders</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <label for="message">Your Message:</label>
+            <textarea id="message" name="message"
+                      rows="5" required minlength="10"
+                      placeholder="Tell us what you would like to know..."></textarea>
+
+            <button type="submit">Submit Enquiry </button>
+
+        </form>
+
+        <div id="response" role="status" aria-live="polite"></div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Gustapo Pizza | Fresh Pizza, Made with Love!</p>
+    </footer>
+
+    <script>
+        const form = document.getElementById("enquiryForm");
+        const response = document.getElementById("response");
+
+        form.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const name = document.getElementById("name").value.trim();
+            const pizza = document.getElementById("pizza").value;
+            const size = document.getElementById("size").value;
+            const type = document.getElementById("type").value;
+
+            const replies = {
+                "Prices": "We will help you find the prices for our pizzas.",
+                "Ingredients": "We can provide more information about our ingredients and allergens.",
+                "Special Offers": "Ask us about our latest pizza deals and meal specials.",
+                "Delivery": "We can provide information about delivery areas and fees.",
+                "Catering": "We can help you plan pizza orders for parties and events.",
+                "Other": "Our team will be happy to help with your question."
+            };
+
+            response.textContent =
+                "Thank you, " + name +
+                "! Your enquiry about a " + size + " " + pizza +
+                " pizza has been received. " + replies[type] +
+                " This is a demonstration; your enquiry has not been sent to the restaurant.";
+
+            response.style.display = "block";
+        });
+    </script>
+<script src="js/script.js"></script>
+</body>
+</html>
+
+
